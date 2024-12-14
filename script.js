@@ -53,3 +53,6 @@ function addBook(event) {
 
     alert("Book updated successfully!");
 }
+function logout() {
+  window.location.href = "index.html"; 
+}
