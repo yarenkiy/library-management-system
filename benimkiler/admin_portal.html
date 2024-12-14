@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin_portal.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <h1>Library Management Dashboard</h1>
+            <button class="logout-btn" onclick="window.location.href='index.html'">Log Out</button>
+        </header>
+
+        <!-- Manage Books Section -->
+        <section class="manage-books">
+            <h2>Manage Books</h2>
+            <div class="buttons">
+                <button class="action-btn" id="rented-book-btn" onclick="window.location.href='rented_book.html'">Rented
+                    Books</button>
+                <button class="action-btn" id="add-book-btn" onclick="window.location.href='add_book.html'">Add
+                    Book</button>
+
+                <button class="action-btn" id="update-book-btn" onclick="window.location.href='update_book.html'">Update
+                    Book</button>
+                <button class="action-btn" id="delete-book-btn" onclick="window.location.href='delete_book.html'">Delete
+                    Book</button>
+            </div>
+        </section>
+
+        <!-- Last Added Books Section -->
+        <div class="last-added-books">
+            <h2>Last Added Books</h2>
+            <div class="scroll-container">
+                <div class="book-card">
+                    <img src="https://via.placeholder.com/100x150" alt="Book 1">
+                    <h3>Book Title 1</h3>
+                </div>
+                <div class="book-card">
+                    <img src="https://via.placeholder.com/100x150" alt="Book 2">
+                    <h3>Book Title 2</h3>
+                </div>
+                <div class="book-card">
+                    <img src="https://via.placeholder.com/100x150" alt="Book 3">
+                    <h3>Book Title 3</h3>
+                </div>
+                <div class="book-card">
+                    <img src="https://via.placeholder.com/100x150" alt="Book 4">
+                    <h3>Book Title 4</h3>
+                </div>
+                <div class="book-card">
+                    <img src="https://via.placeholder.com/100x150" alt="Book 5">
+                    <h3>Book Title 5</h3>
+                </div>
+                <div class="book-card">
+                    <img src="https://via.placeholder.com/100x150" alt="Book 6">
+                    <h3>Book Title 6</h3>
+                </div>
+                <div class="book-card">
+                    <img src="https://via.placeholder.com/100x150" alt="Book 6">
+                    <h3>Book Title 7</h3>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</body>
+
+</html>

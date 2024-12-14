@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, rgba(245, 247, 250, 0.4), rgba(195, 207, 226, 0.4)),
+        url('download.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.index-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.login-card {
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+}
+
+.icon {
+    font-size: 3rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+button:hover {
+    background: #0011ff;
+
+}
