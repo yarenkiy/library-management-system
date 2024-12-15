@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Rented Books</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <button id="backBtn">Back</button>
+        <h1>My Rented Books</h1>
+        <form id="bookForm">
+            <label for="isbn">Book ISBN</label>
+            <input type="text" id="isbn" placeholder="Enter book ISBN" required>
+
+            <label for="title">Book Title</label>
+            <input type="text" id="title" placeholder="Enter book title" required>
+
+            <label for="author">Author</label>
+            <input type="text" id="author" placeholder="Enter author name" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" placeholder="Enter book description" required></textarea>
+
+            <label for="image">Book Image</label>
+            <input type="file" id="image">
+
+            <button type="button" id="addBookBtn">Add Book</button>
+        </form>
+
+        <h2>Rented Book List</h2>
+        <ul id="bookList"></ul>
+    </div>
+
+    <script src="crud.js"></script>
+</body>
+
+</html>

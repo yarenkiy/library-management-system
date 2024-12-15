@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rented Books</title>
+    <link rel="stylesheet" href="rented_books.css">
+</head>
+
+<body>
+    <!-- Navbar with Search Bar -->
+    <div class="navbar">
+        <input type="text" id="searchInput" placeholder="Search books..." onkeyup="searchBooks()">
+        <button id="searchButton">🔍</button>
+    </div>
+
+    <!-- Rented Books Container -->
+    <div class="container">
+        <h1>Rented Books</h1>
+        <div id="bookList">
+            <!-- Dynamic Books Rendered Here -->
+        </div>
+    </div>
+
+    <script src="rented_books.js"></script>
+</body>
+
+</html>

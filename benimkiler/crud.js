@@ -1,88 +1,99 @@
-// Placeholder data for books
-const books = [
-    { id: 1, title: "Book A", author: "Author A", status: "Available" },
-    { id: 2, title: "Book B", author: "Author B", status: "Rented" },
-];
+// Book array to store book data
+let books = [];
 
-// Function to display books in the table
+// Function to add a new book
+function addBook() {
+    const isbn = document.getElementById('isbn').value.trim();
+    const title = document.getElementById('title').value.trim();
+    const author = document.getElementById('author').value.trim();
+    const description = document.getElementById('description').value.trim();
+    const imageFile = document.getElementById('image').files[0];
+
+    // Basic validation
+    if (!isbn || !title || !author) {
+        alert('Please fill out ISBN, Title, and Author fields.');
+        return;
+    }
+
+    const book = {
+        id: Date.now(), // Unique ID
+        isbn,
+        title,
+        author,
+        description,
+        imageUrl: imageFile ? URL.createObjectURL(imageFile) : null
+    };
+
+    books.push(book);
+    displayBooks();
+    clearForm();
+}
+
+// Function to display books
 function displayBooks() {
-    const tableBody = document.querySelector("#book-table tbody");
-    tableBody.innerHTML = ""; // Clear the table first
+    const bookList = document.getElementById('bookList');
+    bookList.innerHTML = '';
 
-    books.forEach((book) => {
-        const row = document.createElement("tr");
-
-        row.innerHTML = `
-            <td>${book.id}</td>
-            <td>${book.title}</td>
-            <td>${book.author}</td>
-            <td>${book.status}</td>
+    books.forEach(book => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <strong>${book.title} (${book.isbn})</strong><br>
+            Author: ${book.author}<br>
+            Description: ${book.description}<br>
+            ${book.imageUrl ? `<img src="${book.imageUrl}" alt="Book Image" style="width:100px;">` : ''}
+            <br>
+            <button onclick="editBook(${book.id})">Edit</button>
+            <button onclick="deleteBook(${book.id})">Delete</button>
+            <hr>
         `;
-
-        tableBody.appendChild(row);
+        bookList.appendChild(listItem);
     });
 }
 
-// Add Book Functionality
-function addBook() {
-    const newBook = {
-        id: books.length + 1,
-        title: prompt("Enter book title:"),
-        author: prompt("Enter book author:"),
-        status: "Available",
-    };
+// Function to delete a book
+function deleteBook(id) {
+    alert("Book deleted successfully!");
+    // Filter the books to remove the one with the matching ID
+    const originalLength = books.length;
+    books = books.filter(book => book.id !== id);
 
-    if (newBook.title && newBook.author) {
-        books.push(newBook);
-        alert("Book added successfully!");
-        displayBooks();
-    } else {
-        alert("Book title and author are required.");
-    }
+    // Check if a book was deleted
+    // if (books.length < originalLength) {
+    //     alert("Book deleted successfully!");
+    //   } else {
+    //      alert("No book found with the provided ID.");
+    //   }
+
+    // Optionally, refresh the display
+    // displayBooks(books);
 }
 
-// Update Book Functionality
-function updateBook() {
-    const bookId = parseInt(prompt("Enter the Book ID to update:"));
-    const book = books.find((b) => b.id === bookId);
+// Function to edit a book
+function editBook(event) {
+    event.preventDefault();
 
-    if (book) {
-        book.title = prompt("Enter new title:", book.title);
-        book.author = prompt("Enter new author:", book.author);
-        alert("Book updated successfully!");
-        displayBooks();
-    } else {
-        alert("Book not found.");
+    var isbn = document.getElementById("book-isbn").value;
+    var title = document.getElementById("book-title").value;
+    var author = document.getElementById("book-author").value;
+    var description = document.getElementById("book-description").value;
+    var image = document.getElementById("book-image").files[0];
+
+    if (!isbn) {
+        console.error("Error: ISBN is required to update the book.");
+        alert("Please provide the ISBN of the book you want to update.");
+        return;
+
+
     }
+
+    alert("Book updated!");
 }
 
-// Delete Book Functionality
-function deleteBook() {
-    const bookId = parseInt(prompt("Enter the Book ID to delete:"));
-    const bookIndex = books.findIndex((b) => b.id === bookId);
-
-    if (bookIndex !== -1) {
-        books.splice(bookIndex, 1);
-        alert("Book deleted successfully!");
-        displayBooks();
-    } else {
-        alert("Book not found.");
-    }
+// Function to clear the form
+function clearForm() {
+    document.getElementById('isbn').value = '';
+    document.getElementById('title').value = '';
+    document.getElementById('author').value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('image').value = '';
 }
-
-// Display Rented Books
-function displayRentedBooks() {
-    const rentedBooks = books.filter((book) => book.status === "Rented");
-
-    if (rentedBooks.length > 0) {
-        alert(
-            "Rented Books:\n" +
-            rentedBooks.map((b) => `${b.title} by ${b.author}`).join("\n")
-        );
-    } else {
-        alert("No books are currently rented.");
-    }
-}
-
-// Initialize the table on page load
-document.addEventListener("DOMContentLoaded", displayBooks);
