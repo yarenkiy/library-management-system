@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Rented Books</title>
+    <link rel="stylesheet" href="css/student_returnBook.css">
+    <script src="https://kit.fontawesome.com/a270fcf83b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <a href="student_page.html" class="back-button">←</a>
+            <h1>My Rented Books</h1>
+            <input type="text" id="search-bar" placeholder="Search..." oninput="filterBooks()" />
+        </header>
+
+        <!-- Book List -->
+        <section id="book-list">
+            <div class="book-item">
+                <img src="https://via.placeholder.com/50" alt="Book 1">
+                <div class="book-details">
+                    <h3>Book Title 1</h3>
+                    <p>Author: Author Name 1</p>
+                    <p>Description: A short description of the book.</p>
+                </div>
+                <button onclick="returnBook('Book Title 1')">Return</button>
+            </div>
+
+            <div class="book-item">
+                <img src="https://via.placeholder.com/50" alt="Book 2">
+                <div class="book-details">
+                    <h3>Book Title 2</h3>
+                    <p>Author: Author Name 2</p>
+                    <p>Description: A short description of the book.</p>
+                </div>
+                <button onclick="returnBook('Book Title 2')">Return</button>
+            </div>
+
+            <div class="book-item">
+                <img src="https://via.placeholder.com/50" alt="Book 3">
+                <div class="book-details">
+                    <h3>Book Title 3</h3>
+                    <p>Author: Author Name 3</p>
+                    <p>Description: A short description of the book.</p>
+                </div>
+                <button onclick="returnBook('Book Title 3')">Return</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Search filter function
+        function filterBooks() {
+            const input = document.getElementById('search-bar').value.toLowerCase();
+            const bookItems = document.getElementsByClassName('book-item');
+
+            for (let i = 0; i < bookItems.length; i++) {
+                const bookTitle = bookItems[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (bookTitle.includes(input)) {
+                    bookItems[i].style.display = '';
+                } else {
+                    bookItems[i].style.display = 'none';
+                }
+            }
+        }
+
+        function returnBook(bookTitle) {
+            alert(` ${bookTitle} successfully returned`);
+        }
+    </script>
+</body>
+
+</html>
