@@ -52,7 +52,7 @@ body {
   }
   
   .button {
-    background-color: #007bff;
+    background-color: #45a049;
     color: #fff;
     padding: 12px 20px;
     border: none;
@@ -62,11 +62,11 @@ body {
   }
   
   .button:hover {
-    background-color: #0056b3;
+    background-color:#45a049;
   }
 
 .button-secondary {
-    background-color: #6c757d;
+    background-color: #269123;
     color: #fff;
     padding: 10px 16px;
     border: none;

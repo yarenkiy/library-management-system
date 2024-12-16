@@ -22,7 +22,7 @@
         <section class="manage-books">
             <h2>Manage Books</h2>
             <div class="buttons">
-                <button class="action-btn"id="rented-book-btn" onclick="window.location.href='book_rent.html'">Rented Books</button>
+                <button class="action-btn"id="rented-book-btn" onclick="window.location.href='rented_book.html'">Rented Books</button>
                 <button class="action-btn" id="add-book-btn" onclick="window.location.href='add_book.html'">Add Book</button>
 
                 <button class="action-btn"id="update-book-btn" onclick="window.location.href='update_book.html'">Update Book</button>
@@ -34,39 +34,75 @@
         <div class="last-added-books">
             <h2>Last Added Books</h2>
             <div class="scroll-container">
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/100x150" alt="Book 1">
-                    <h3>Book Title 1</h3>
+                <div class="book-card" onclick="showBookDetails('The Great Gatsby', 'F. Scott Fitzgerald', 'Lorem impus.')">
+                    <img src="/images/book.png" alt="Book 1">
+                    <div class="book-info">
+                        <h3>The Great Gatsby</h3>
+                    </div>
                 </div>
-                <div class="book-card">
+    
+                <div class="book-card" onclick="showBookDetails('Book Title 2', 'Author Name 2', 'Description for book 2.')">
                     <img src="https://via.placeholder.com/100x150" alt="Book 2">
-                    <h3>Book Title 2</h3>
+                    <div class="book-info">
+                        <h3>Book Title 2</h3>
+                    </div>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="showBookDetails('Book Title 3', 'Author Name 3', 'Description for book 3.')">
                     <img src="https://via.placeholder.com/100x150" alt="Book 3">
-                    <h3>Book Title 3</h3>
+                    <div class="book-info">
+                        <h3>Book Title 3</h3>
+                    </div>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="showBookDetails('Book Title 4', 'Author Name 4', 'Description for book 4.')">
                     <img src="https://via.placeholder.com/100x150" alt="Book 4">
-                    <h3>Book Title 4</h3>
+                    <div class="book-info">
+                        <h3>Book Title 4</h3>
+                    </div>
                 </div>
-                <div class="book-card">
+    
+                <div class="book-card" onclick="showBookDetails('Book Title 5', 'Author Name 5', 'Description for book 5.')">
                     <img src="https://via.placeholder.com/100x150" alt="Book 5">
-                    <h3>Book Title 5</h3>
+                    <div class="book-info">
+                        <h3>Book Title 5</h3>
+                    </div>
                 </div>
-                <div class="book-card">
+    
+                <div class="book-card" onclick="showBookDetails('Book Title 6', 'Author Name 6', 'Description for book 6.')">
                     <img src="https://via.placeholder.com/100x150" alt="Book 6">
-                    <h3>Book Title 6</h3>
+                    <div class="book-info">
+                        <h3>Book Title 6</h3>
+                    </div>
                 </div>
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/100x150" alt="Book 6">
-                    <h3>Book Title 7</h3>
+                <div class="book-card" onclick="showBookDetails('Book Title 7', 'Author Name 7', 'Description for book 7.')">
+                    <img src="https://via.placeholder.com/100x150" alt="Book 1">
+                    <div class="book-info">
+                        <h3>Book Title 7</h3>
+                    </div>
                 </div>
+    
             </div>
+         
        
 </div>
-
+<div id="book-popup" class="book-popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="window.location.href='admin_portal.html';">×</span>
+        <h2 id="popup-title"></h2>
+        <p id="popup-author"></p>
+        <p id="popup-description"></p>
 
     </div>
+</div>
+
+    </div>
+    <script>
+        function showBookDetails(title, author, description) {
+            document.getElementById('popup-title').innerText = title;
+            document.getElementById('popup-author').innerText = 'Author: ' + author;
+            document.getElementById('popup-description').innerText = description;
+            document.getElementById('book-popup').style.display = 'flex';
+           
+        }
+       </script>
 </body>
 </html>

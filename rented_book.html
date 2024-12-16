@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent a Book</title>
+    <link rel="stylesheet" href="css/student_rentBook.css">
+    <script src="https://kit.fontawesome.com/a270fcf83b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <a href="admin_portal.html" class="back-button">←</a>
+            <h1>Rented Books</h1>
+            <input type="text" id="search-bar" placeholder="Search..." oninput="filterBooks()" />
+        </header>
+
+        <!-- Book List -->
+        <section id="book-list">
+            <div class="book-item" onclick="showBookDetails('The Great Gatsby', 'F. Scott Fitzgerald', 'Lorem impus.')">
+                <img src="/images/book.png" alt="Book 1">
+                <div class="book-info">
+                    <h3>The Great Gatsby</h3>
+                </div>
+            </div>
+
+            <div class="book-item" onclick="showBookDetails('Book Title 2', 'Author Name 2', 'Description for book 2.')">
+                <img src="https://via.placeholder.com/100x150" alt="Book 2">
+                <div class="book-info">
+                    <h3>Book Title 2</h3>
+                </div>
+            </div>
+            <div class="book-item" onclick="showBookDetails('Book Title 3', 'Author Name 3', 'Description for book 3.')">
+                <img src="https://via.placeholder.com/100x150" alt="Book 3">
+                <div class="book-info">
+                    <h3>Book Title 3</h3>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Book details popup -->
+    <div id="book-popup" class="book-popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="window.location.href='rented_book.html';">×</span>
+            <h2 id="popup-title"></h2>
+            <p id="popup-author"></p>
+            <p id="popup-description"></p>
+            
+        </div>
+    </div>
+
+    <script>
+        function showBookDetails(title, author, description) {
+            document.getElementById('popup-title').innerText = title;
+            document.getElementById('popup-author').innerText = 'Author: ' + author;
+            document.getElementById('popup-description').innerText = description;
+            document.getElementById('book-popup').style.display = 'flex';
+            document.getElementById('rent-button').style.display = 'inline-block'; 
+        }
+
+        // Search filter function
+        function filterBooks() {
+            const input = document.getElementById('search-bar').value.toLowerCase();
+            const bookItems = document.getElementsByClassName('book-item');
+
+            for (let i = 0; i < bookItems.length; i++) {
+                const bookTitle = bookItems[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (bookTitle.includes(input)) {
+                    bookItems[i].style.display = '';
+                } else {
+                    bookItems[i].style.display = 'none';
+                }
+            }
+        }
+
+        
+    </script>
+</body>
+
+</html>
