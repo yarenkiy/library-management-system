@@ -21,9 +21,14 @@
 
           
 
-            <button type="submit">Register</button>
+            <button type= "submit" onclick="redirectTo('Student_Login.html')">Register</button>
         </form>
         <p>Already have an account? <a href="student_login.html">Log in</a></p>
     </div>
+    <script>
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
 </body>
 </html>
